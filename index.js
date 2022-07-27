@@ -33,7 +33,7 @@ Swal.fire({
         alert(decodedResult);
     }
     var html5QrcodeScanner = new Html5QrcodeScanner(
-        "barcode-reader", { fps: 10, qrbox: 100 });
+        "barcode-reader", { fps: 10, qrbox: 250 });
     html5QrcodeScanner.render(onScanSuccess);
 })
 
