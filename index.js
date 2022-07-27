@@ -30,7 +30,7 @@ Swal.fire({
 }).then(()=>{
     function onScanSuccess(decodedText, decodedResult) {
         console.log(`Code scanned = ${decodedText}`, decodedResult);
-        alert(decodedResult);
+        alert(decodedText);
     }
     var html5QrcodeScanner = new Html5QrcodeScanner(
         "barcode-reader", { fps: 10, qrbox: 250 });
