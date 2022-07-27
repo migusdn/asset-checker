@@ -33,10 +33,20 @@ Swal.fire({
         alert(decodedText);
     }
     var html5QrcodeScanner = new Html5QrcodeScanner(
-        "barcode-reader", { fps: 10, qrbox: 250 });
+        "barcode-reader",
+        { fps: 10, qrbox: {width:400, height:100} },
+        /* verbose= */ );
     html5QrcodeScanner.render(onScanSuccess);
 })
-
+let qrboxFunction = function(viewfinderWidth, viewfinderHeight) {
+    let minEdgePercentage = 0.7; // 70%
+    let minEdgeSize = Math.min(viewfinderWidth, viewfinderHeight);
+    let qrboxSize = Math.floor(minEdgeSize * minEdgePercentage);
+    return {
+        width: qrboxSize,
+        height: qrboxSize
+    };
+}
 function sheetToJson(wb) {
     let result = new Array();
     wb.SheetNames.forEach(sheetName => {
